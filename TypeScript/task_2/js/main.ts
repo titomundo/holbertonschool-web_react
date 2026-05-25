@@ -11,7 +11,7 @@ interface TeacherInterface {
 }
 
 class Director implements DirectorInterface {
-	constructor() {};
+	constructor() { }
 	workFromHome() {
 		return "Working from home";
 	}
@@ -26,7 +26,7 @@ class Director implements DirectorInterface {
 }
 
 class Teacher implements TeacherInterface {
-	constructor() {};
+	constructor() { }
 
 	workFromHome() {
 		return "Cannot work from home";
@@ -61,9 +61,22 @@ function executeWork(employee: Director | Teacher) {
 	}
 }
 
+type Subject = "Math" | "History";
+
+function teachClass(todayClass: string) {
+	if (todayClass === "Math") {
+		return "Teaching Math";
+	} else if (todayClass === "History") {
+		return "Teaching History";
+	}
+}
+
 console.log(createEmployee(200));
 console.log(createEmployee(1000));
-console.log(createEmployee('$500'));
+console.log(createEmployee("$500"));
 
 console.log(executeWork(createEmployee(200)));
 console.log(executeWork(createEmployee(1000)));
+
+console.log(teachClass("Math"));
+console.log(teachClass("History"));
